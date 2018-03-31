@@ -47,9 +47,9 @@
     <body>
         <% @codes.each_with_index do |code, index| %>
             <div class="barcode_container">
-                <div class="barcode-cell" style="background-image: url(http://localhost:4567/?code=<%=code%>)">
+                <div class="barcode-cell" style="background-image: url(http://<%=@host%>/?code=<%=code%>)">
                     <div class="barcode-label">
-                        <%=code%> <%=index%>
+                        <%=code%>
                     </div>
                 </div>
             </div>

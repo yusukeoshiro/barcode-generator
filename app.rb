@@ -26,6 +26,7 @@ end
 
 get "/pdf" do
 
+    @host = request.env["HTTP_HOST"]
 
     @codes = params[:codes].split(":")
     @page_padding = params[:page_padding] || "8.8mm 8.4mm"
