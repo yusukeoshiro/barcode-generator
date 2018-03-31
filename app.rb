@@ -45,3 +45,27 @@ get "/pdf" do
     kit = PDFKit.new(html, :margin_top => '0mm', :margin_right => '0mm', :margin_bottom => '0mm', :margin_left => '0mm')
     kit.to_pdf
 end
+
+
+
+post "/pdf" do
+
+    @host = request.env["HTTP_HOST"]
+
+    @codes = params[:barcodes].split(":")
+    @page_padding = params[:page_padding] || "8.8mm 8.4mm"
+
+    @cell_width   = params[:cell_width]   || "48.3mm"
+    @cell_height  = params[:cell_height]  || "25.4mm"
+    @cell_padding = params[:cell_padding] || "0mm"
+    @cell_margin  = params[:cell_margin]  || "0mm"
+
+    @barcodes_per_page = params[:barcodes_per_page] || 11
+    @barcodes_per_page = @barcodes_per_page.to_i
+
+    html = erb :pdf
+
+    content_type "application/pdf"
+    kit = PDFKit.new(html, :margin_top => '0mm', :margin_right => '0mm', :margin_bottom => '0mm', :margin_left => '0mm')
+    kit.to_pdf
+end
