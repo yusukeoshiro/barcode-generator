@@ -1,12 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    backports (3.11.1)
     barby (0.6.5)
     cairo (1.15.12)
       native-package-installer (>= 1.0.3)
       pkg-config (>= 1.2.2)
+    mini_portile2 (2.3.0)
+    multi_json (1.13.1)
     mustermann (1.0.2)
     native-package-installer (1.0.6)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    pdfkit (0.8.2)
     pkg-config (1.2.9)
     rack (2.0.4)
     rack-protection (2.0.1)
@@ -16,7 +22,15 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.1)
       tilt (~> 2.0)
+    sinatra-contrib (2.0.1)
+      backports (>= 2.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.0.1)
+      sinatra (= 2.0.1)
+      tilt (>= 1.3, < 3)
     tilt (2.0.8)
+    wkhtmltopdf-binary (0.12.3.1)
 
 PLATFORMS
   ruby
@@ -24,7 +38,14 @@ PLATFORMS
 DEPENDENCIES
   barby (~> 0.6.5)
   cairo (~> 1.15, >= 1.15.12)
+  nokogiri (~> 1.8, >= 1.8.2)
+  pdfkit (~> 0.8.2)
   sinatra (~> 2.0, >= 2.0.1)
+  sinatra-contrib (~> 2.0, >= 2.0.1)
+  wkhtmltopdf-binary (~> 0.12.3.1)
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.16.1

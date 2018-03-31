@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <style>
+            body{
+                margin: 0px;
+                padding: <%=@page_padding%>;
+                //width: 210mm;
+                //height: 297mm;
+            }
+
+            .barcode_container{
+                //border: solid 1px black;
+                //border-collapse: collapse;
+                float:left;
+                position: relative;
+
+                width: <%=@cell_width%>;
+                height: <%=@cell_height%>;
+            }
+
+            .barcode-cell {
+                margin: <%=@cell_margin%>;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                position: relative;
+                height: 100%;
+
+
+            }
+            .barcode-label {
+                position: absolute;
+                bottom: 0px;
+                text-align: center;
+                right: 0px;
+                background-color: white;
+                margin: auto auto;
+                width: 100%;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <% @codes.each_with_index do |code, index| %>
+            <div class="barcode_container">
+                <div class="barcode-cell" style="background-image: url(http://localhost:4567/?code=<%=code%>)">
+                    <div class="barcode-label">
+                        <%=code%> <%=index%>
+                    </div>
+                </div>
+            </div>
+            <% if (index % @barcodes_per_page) + 1 == @barcodes_per_page %>
+                <div style="page-break-before:always">&nbsp;</div>
+            <% end %>
+        <% end %>
+
+        <div style="clear:both;"></div>
+
+    </body>
+</html>
