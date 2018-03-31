@@ -1,0 +1,30 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    barby (0.6.5)
+    cairo (1.15.12)
+      native-package-installer (>= 1.0.3)
+      pkg-config (>= 1.2.2)
+    mustermann (1.0.2)
+    native-package-installer (1.0.6)
+    pkg-config (1.2.9)
+    rack (2.0.4)
+    rack-protection (2.0.1)
+      rack
+    sinatra (2.0.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.1)
+      tilt (~> 2.0)
+    tilt (2.0.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  barby (~> 0.6.5)
+  cairo (~> 1.15, >= 1.15.12)
+  sinatra (~> 2.0, >= 2.0.1)
+
+BUNDLED WITH
+   1.16.1
