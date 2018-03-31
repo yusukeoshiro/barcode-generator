@@ -6,6 +6,7 @@ require 'barby/outputter/cairo_outputter'
 
 get "/" do
     code = params[:code]
+    content_type "image/svg+xml"    
     if code
         barcode = Barby::Code128B.new(code)
         outputter = Barby::CairoOutputter.new(barcode)
