@@ -7,7 +7,7 @@ require 'barby/outputter/cairo_outputter'
 get "/" do
     code = params[:code]
     if code
-        barcode = Barby::Code128B.new('BARBY')
+        barcode = Barby::Code128B.new(code)
         outputter = Barby::CairoOutputter.new(barcode)
         outputter.to_svg
     else
